@@ -6,8 +6,30 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var cors = require('cors');
 var app = express();
+
+app.use(cors({
+  origin:['http://localhost:4200','http://127.0.0.1:4200'],
+  credentials:true
+}));
+
+//attempt to connect to mongoDB
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb+srv://testuser123:testuser123@cluster0-j6gtz.mongodb.net/login?retryWrites=true&w=majority';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  client.close();
+});
+
+
+//var mongoose = require('mongoose');
+//mongoose.connect("mongodb+srv://testuser123:testuser123@cluster0-j6gtz.mongodb.net/login?retryWrites=true&w=majority");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
