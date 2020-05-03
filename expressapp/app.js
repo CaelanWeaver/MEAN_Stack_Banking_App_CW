@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var cors = require('cors');
+var cors= require('cors');
 var app = express();
 
 app.use(cors({
@@ -14,22 +14,47 @@ app.use(cors({
   credentials:true
 }));
 
-//attempt to connect to mongoDB
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-
-// Connection URL
 const url = 'mongodb+srv://testuser123:testuser123@cluster0-j6gtz.mongodb.net/login?retryWrites=true&w=majority';
+const mongoose =require('mongoose');
 
-// Use connect method to connect to the Server
-MongoClient.connect(url, function(err, client) {
-  assert.equal(null, err);
-  client.close();
-});
+mongoose.connect(url, {useNewUrlParser:true})
+.then(()=> console.log('MongoDB Connected...'))
+.catch(err=> console.log(err));
 
 
-//var mongoose = require('mongoose');
-//mongoose.connect("mongodb+srv://testuser123:testuser123@cluster0-j6gtz.mongodb.net/login?retryWrites=true&w=majority");
+// //MongoDB variables
+// const MongoClient = require('mongodb').MongoClient;
+// const assert = require('assert');
+
+// // Connection URL
+
+
+// // Use connect method to connect to the Server
+// MongoClient.connect(url, function(err, client) {
+//   assert.equal(null, err);
+//   client.close();
+// });
+
+//passport
+var passport = require('passport');
+var session = require('express-session');
+//const MongoStore = require('connect-mongo')(session);
+app.use(session({
+  name:'myname.sid',
+  resave:false,
+  saveUninitialized:false,
+  secret:'secret',
+  cookie:{
+    maxAge:36000000,
+    httpOnly:false,
+    secure:false
+  },
+  //store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+require('./passport-config');
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
