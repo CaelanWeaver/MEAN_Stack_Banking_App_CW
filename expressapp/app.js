@@ -21,24 +21,10 @@ mongoose.connect(url, {useNewUrlParser:true})
 .then(()=> console.log('MongoDB Connected...'))
 .catch(err=> console.log(err));
 
-
-// //MongoDB variables
-// const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
-
-// // Connection URL
-
-
-// // Use connect method to connect to the Server
-// MongoClient.connect(url, function(err, client) {
-//   assert.equal(null, err);
-//   client.close();
-// });
-
 //passport
 var passport = require('passport');
 var session = require('express-session');
-//const MongoStore = require('connect-mongo')(session);
+
 app.use(session({
   name:'myname.sid',
   resave:false,
@@ -49,12 +35,11 @@ app.use(session({
     httpOnly:false,
     secure:false
   },
-  //store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+
 require('./passport-config');
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
