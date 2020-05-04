@@ -35,4 +35,18 @@ router.post('/login', function(req,res,next){
   })(req, res, next);
 });
 
+router.get('/user',isValidUser,function(req,res,next){
+  return res.status(200).json(req.user);
+});
+
+router.get('/logout', isValidUser,function(req,res,next){
+  req.logout();
+  return res.status(200).json({message:'Logout successful'});
+})
+
+function isValidUser(req,res,next){
+  if(req.isAuthenticated()) next();
+  else return res.status(401).json({message:'Unauthorised Request'});
+}
+
 module.exports = router;

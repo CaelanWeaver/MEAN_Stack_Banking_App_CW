@@ -37,7 +37,7 @@ app.use(session({
   },
 }));
 
-require('./passport-config');
+require('./config/passport-config');
 app.use(passport.initialize());
 app.use(passport.session());
 
