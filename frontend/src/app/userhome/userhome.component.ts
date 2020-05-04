@@ -10,14 +10,19 @@ import { error } from 'protractor';
 })
 export class UserhomeComponent implements OnInit {
 
+  username:String='';
+
   constructor(private _user:UserService, private _router:Router) { 
     this._user.user()
     .subscribe(
-      data=>console.log(data),
+      data=>this.addName(data),
       _error=>this._router.navigate(['/login'])
     )
   }
-
+  addName(data){
+    this.username= data.username;
+  }
+  
   ngOnInit(): void {
   }
 
