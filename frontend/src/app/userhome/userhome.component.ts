@@ -18,12 +18,12 @@ export class UserhomeComponent implements OnInit {
   balance:new FormControl(null,Validators.required)
   });
 
- 
-    
+  //variables
   username:String='';
   balance:number=0;
   newBalance:number=0;
   id:string='';
+
   constructor(private _user:UserService, private _router:Router, private _snackBar:MatSnackBar) { 
     
   }
@@ -37,26 +37,14 @@ export class UserhomeComponent implements OnInit {
       }),
       catchError((error)=>{
         this._snackBar.open(error,'X',{
-          duration:4000
-          
+          duration:5000
         });
         this._router.navigate(['/login']);
         throw error;
       })
-      // data=>{console.log(data);this.displayDeposite(data)},
-      // _error=>this._router.navigate(['/login'])
     ).subscribe();
-    
-
   }
 
-  displayName(data){
-    this.username= data.username;
-  }
-
-  displayDeposite(data){
-    this.balance= data.balance;
-  }
   
   logout(){
     this._user.logout()
