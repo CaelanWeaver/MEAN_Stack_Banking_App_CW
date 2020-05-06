@@ -1,0 +1,19 @@
+{
+  "name": "mean_stack_banking_app_cw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeenDawg/MEAN_Stack_Banking_App_CW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeenDawg/MEAN_Stack_Banking_App_CW/issues"
+  },
+  "homepage": "https://github.com/KeenDawg/MEAN_Stack_Banking_App_CW#readme"
+}
