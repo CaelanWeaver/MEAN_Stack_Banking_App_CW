@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@ngx-pwa/local-storage": "^9.0.3",
     "bcrypt": "^4.0.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",

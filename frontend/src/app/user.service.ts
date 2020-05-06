@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-
+import {UpdateBalance} from './updateBalance.model';
+import { LocalStorage } from '@ngx-pwa/local-storage';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient, protected localStorage:LocalStorage) { }
+
+  // ngOnInit(){
+  //   document.getElementById('_id').addEventListener('submit', function(){
+  //     var id = document.getElementById('')
+  //   })
+  //   console.log(this.localStorage.getItem('_id'))
+  //   }
+  
 
   register(body:any){
     return this._http.post('http://127.0.0.1:3000/users/register',body,{
@@ -38,4 +47,16 @@ export class UserService {
       headers: new HttpHeaders().append('Content-Type','application/json')
     })
   }
+
+  UpdateBalance(update:UpdateBalance){
+    return this._http.post('http://127.0.0.1:3000/users/update', update)
+  }
+
+  // updateBalance(id:string,balance:number){
+  //   return this._http.post('http://127.0.0.1:3000/users/update',{id:id,balance:balance},{
+  //     observe:'body', 
+  //     withCredentials:true,
+  //     headers: new HttpHeaders().append('Content-Type','application/json')
+  //   })
+  // }
 }

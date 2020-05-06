@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 var passport = require('passport');
 
+
 router.post('/register',function(req,res,_next){
   addToDB(req,res)
 });
@@ -31,7 +32,7 @@ router.post('/login', function(req,res,next){
     if (!user) { return res.status(501).json(info); }
     req.logIn(user, function(err) {
       if (err) { return res.status(501).json(err); }
-      return res.status(200).json({message:'Login successful!'});
+      return res.status(200).json({user:user});
     });
   })(req, res, next);
 });
@@ -49,5 +50,15 @@ function isValidUser(req,res,next){
   if(req.isAuthenticated()) next();
   else return res.status(401).json({message:'Unauthorised Request'});
 }
+
+router.post('/update',function(req,res,next){
+  User.findByIdAndUpdate(req.body._id, { balance:req.body.balance}, {new: true}, function(err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(req.body);
+    }
+  });
+});
 
 module.exports = router;
