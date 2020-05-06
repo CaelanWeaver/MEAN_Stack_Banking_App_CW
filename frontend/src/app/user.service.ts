@@ -44,8 +44,8 @@ export class UserService {
     })
   }
 
-  logout(){
-    return this._http.get('http://127.0.0.1:3000/users/logout',{
+  logout(): Observable<User>{
+    return this._http.get<User>('http://127.0.0.1:3000/users/logout',{
       observe:'body', 
       withCredentials:true,
       headers: new HttpHeaders().append('Content-Type','application/json')
@@ -55,12 +55,4 @@ export class UserService {
   UpdateBalance(update:UpdateBalance){
     return this._http.post('http://127.0.0.1:3000/users/update', update)
   }
-
-  // updateBalance(id:string,balance:number){
-  //   return this._http.post('http://127.0.0.1:3000/users/update',{id:id,balance:balance},{
-  //     observe:'body', 
-  //     withCredentials:true,
-  //     headers: new HttpHeaders().append('Content-Type','application/json')
-  //   })
-  // }
 }

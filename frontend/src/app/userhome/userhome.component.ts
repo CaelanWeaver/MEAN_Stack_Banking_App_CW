@@ -45,14 +45,22 @@ export class UserhomeComponent implements OnInit {
     ).subscribe();
   }
 
-  
   logout(){
     this._user.logout()
-    .subscribe(
-      data=>{console.log(data);this._router.navigate(['/login'])},
-      error=>console.error(error)
-    )
+    .pipe(
+      tap((res:User)=>{
+      console.log(res);
+      this._router.navigate(['/login']);
+      }),
+      catchError((error)=>{
+        this._snackBar.open(error,'X',{
+          duration:5000
+        });
+        throw error;
+      })
+    ).subscribe();
   }
+
   updateBalance(){
     const userId = localStorage.getItem('_id');
     this.balance+= this.newBalance;
@@ -60,12 +68,21 @@ export class UserhomeComponent implements OnInit {
       _id: userId,
       balance: this.balance
     } as UpdateBalance;
+
   this._user.UpdateBalance(update).
-  subscribe(
-    data=>{console.log(data);this._router.navigate(['/user'])},
-    error=>console.error(error)
-  );
-  }
+  pipe(
+    tap((res:User)=>{
+    console.log(res);
+    this._router.navigate(['/user']);
+    }),
+    catchError((error)=>{
+      this._snackBar.open(error,'X',{
+        duration:5000
+      });
+      throw error;
+    })
+  ).subscribe();
+}
 
   withdrawBalance(){
     const userId = localStorage.getItem('_id');
@@ -74,11 +91,19 @@ export class UserhomeComponent implements OnInit {
       _id: userId,
       balance: this.balance
     } as UpdateBalance;
-  this._user.UpdateBalance(update).
-  subscribe(
-    data=>{console.log(data);this._router.navigate(['/user'])},
-    error=>console.error(error)
-  );
-  }
 
+  this._user.UpdateBalance(update).
+  pipe(
+    tap((res:User)=>{ 
+    console.log(res); 
+    this._router.navigate(['/user']);
+    }),
+    catchError((error)=>{
+      this._snackBar.open(error,'X',{
+        duration:5000
+      });
+      throw error;
+    })
+  ).subscribe();
+  }
 }

@@ -51,10 +51,6 @@ export class LoginComponent implements OnInit {
         throw error;
       })
     ).subscribe();
-    // .subscribe(
-    //   data=>{console.log(data['user']['_id']); this._router.navigate(['/user']);},
-    //   error=>console.error(error)
-    //   )
   }
   
   
