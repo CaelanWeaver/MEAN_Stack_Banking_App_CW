@@ -52,7 +52,7 @@ function isValidUser(req,res,next){
 }
 
 router.post('/update',function(req,res,next){
-  User.findByIdAndUpdate(req.body._id, { balance:req.body.balance}, {new: true}, function(err, result) {
+  User.findByIdAndUpdate(req.body._id, {balance:req.body.balance}, {new: true}, function(err, result) {
     if (err) {
       res.send(err);
     } else {

@@ -4,6 +4,9 @@ import { UserService } from '../user.service';
 import { error } from 'protractor';
 import {FormGroup,FormControl, Validators} from '@angular/forms';
 import { UpdateBalance } from '../updateBalance.model';
+import { tap, catchError } from 'rxjs/operators';
+import { User } from '../models/user.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-userhome',
   templateUrl: './userhome.component.html',
@@ -15,20 +18,38 @@ export class UserhomeComponent implements OnInit {
   balance:new FormControl(null,Validators.required)
   });
 
-  ngOnInit(): void {
-    }
+ 
     
   username:String='';
   balance:number=0;
   newBalance:number=0;
   id:string='';
-  constructor(private _user:UserService, private _router:Router) { 
-    this._user.user()
-    .subscribe(
-      data=>{this.displayName(data);this.displayDeposite(data)},
-      _error=>this._router.navigate(['/login'])
-    )
+  constructor(private _user:UserService, private _router:Router, private _snackBar:MatSnackBar) { 
+    
   }
+
+  ngOnInit(): void {
+    this._user.user()
+    .pipe(
+      tap((res:User)=>{
+        this.username=res.username;
+        this.balance=res.balance;
+      }),
+      catchError((error)=>{
+        this._snackBar.open(error,'X',{
+          duration:4000
+          
+        });
+        this._router.navigate(['/login']);
+        throw error;
+      })
+      // data=>{console.log(data);this.displayDeposite(data)},
+      // _error=>this._router.navigate(['/login'])
+    ).subscribe();
+    
+
+  }
+
   displayName(data){
     this.username= data.username;
   }
@@ -45,9 +66,11 @@ export class UserhomeComponent implements OnInit {
     )
   }
   updateBalance(){
-    let update ={
-      _id:'5eb14eea6072b52544cdd5ad',
-      balance:4321
+    const userId = localStorage.getItem('_id');
+    this.balance+= this.newBalance;
+    const update ={
+      _id: userId,
+      balance: this.balance
     } as UpdateBalance;
   this._user.UpdateBalance(update).
   subscribe(
@@ -55,4 +78,19 @@ export class UserhomeComponent implements OnInit {
     error=>console.error(error)
   );
   }
+
+  withdrawBalance(){
+    const userId = localStorage.getItem('_id');
+    this.balance-= this.newBalance;
+    const update ={
+      _id: userId,
+      balance: this.balance
+    } as UpdateBalance;
+  this._user.UpdateBalance(update).
+  subscribe(
+    data=>{console.log(data);this._router.navigate(['/user'])},
+    error=>console.error(error)
+  );
+  }
+
 }
