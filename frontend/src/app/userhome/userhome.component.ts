@@ -7,6 +7,7 @@ import { UpdateBalance } from '../updateBalance.model';
 import { tap, catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-userhome',
   templateUrl: './userhome.component.html',
@@ -24,10 +25,8 @@ export class UserhomeComponent implements OnInit {
   newBalance:number=0;
   id:string='';
 
-  constructor(private _user:UserService, private _router:Router, private _snackBar:MatSnackBar) { 
-    
-  }
-
+  constructor(private _user:UserService, private _router:Router, private _snackBar:MatSnackBar) {}
+  
   ngOnInit(): void {
     this._user.user()
     .pipe(
@@ -76,7 +75,7 @@ export class UserhomeComponent implements OnInit {
     this._router.navigate(['/user']);
     }),
     catchError((error)=>{
-      this._snackBar.open(error,'X',{
+      this._snackBar.open('Invalid value','X',{
         duration:5000
       });
       throw error;
@@ -99,7 +98,7 @@ export class UserhomeComponent implements OnInit {
     this._router.navigate(['/user']);
     }),
     catchError((error)=>{
-      this._snackBar.open(error,'X',{
+      this._snackBar.open("Invalid value",'X',{
         duration:5000
       });
       throw error;

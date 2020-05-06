@@ -33,19 +33,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    if (!this.loginForm.valid){
-      console.log('invalid'); return;
-    }
-    //console.log(JSON.stringify(this.loginForm.value))
     this._user.login(JSON.stringify(this.loginForm.value)).
     pipe(
       tap((res:UserResponse)=>{
         localStorage.setItem('_id',res.user._id); 
         this._router.navigate(['/user']);
-        
       }),
       catchError((error)=>{
-        this._snackBar.open(error,'X',{
+        this._snackBar.open('Error, invalid email or password','X',{
           duration:4000
         });
         throw error;
