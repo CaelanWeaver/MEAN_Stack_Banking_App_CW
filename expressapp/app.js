@@ -7,9 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var cors= require('cors');
-
-const PORT = process.env.PORT || 5000
-
 var app = express();
 
 app.use(cors({
@@ -73,7 +70,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 module.exports = app;
