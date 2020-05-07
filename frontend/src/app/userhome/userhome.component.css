@@ -6,7 +6,7 @@
     width: 410px;
     margin: auto;
 }
-@media only screen and (max-width:770px) and (max-width: 960px){
+@media only screen and (max-width:960) and (max-width: 1300px){
     .lower-section{
         width: auto;
         margin: auto;
