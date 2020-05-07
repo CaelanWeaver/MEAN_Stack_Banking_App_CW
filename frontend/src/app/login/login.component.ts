@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/user']);
       }),
       catchError((error)=>{
-        this._snackBar.open('Error! Enter a valid email and password','X',{
+        this._snackBar.open('Incorrent email or password','X',{
           duration:4000
         });
         throw error;

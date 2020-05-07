@@ -108,7 +108,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-about"]],
       decls: 19,
       vars: 0,
-      consts: [[1, "row", 2, "margin-top", "40px", "background-color", "#00CED1", "border-radius", "15px", "-webkit-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "-moz-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)"], [1, "col-sm-12"], [1, "jumbotron"], [1, "display-4"], [1, "lead"], [1, "my-4"], [1, "display-3"], [1, "display-1"], ["href", ""], [1, "display-5"]],
+      consts: [[1, "row", 2, "margin-top", "40px", "background-color", "#00CED1", "border-radius", "15px", "-webkit-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "-moz-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)"], [1, "col-sm-12"], [1, "jumbotron"], [1, "display-4"], [1, "lead"], [1, "my-4"], [1, "display-3"], ["href", "https://getbootstrap.com/", 1, "navbar-brand"], ["src", "https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg", "width", "30", "height", "30", "alt", "Bootstrap icon", 1, "d-inline-block", "align-top"], ["href", "https://material.angularjs.org/latest/getting-started", 1, "navbar-brand"], ["src", "https://material.angularjs.org/latest/img/logo.svg", "width", "30", "height", "30", "alt", "AngularJS Material icon", 1, "d-inline-block", "align-top"], ["href", "http://www.passportjs.org/", 1, "navbar-brand"], ["src", "https://cdn.glitch.com/project-avatar/0d184ee3-fd8d-4b94-acf4-b4e686e57375.png?2016-11-21T13:18:58.896Z", "width", "30", "height", "30", "alt", "PassportJS icon", 1, "d-inline-block", "align-top"]],
       template: function AboutComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -125,7 +125,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "p", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "This web application is an online bank account app which allows new and existing users to deposite and withdraw funds from their account. This is a MEAN stack application which was made with the use of many libraries such as Bootstrap and Material for the css and design aspect of the website, and Passport for the login account authenticaion. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "This web application is a MEAN stack online bank account app which allows new and existing users to deposite and withdraw funds from their account. This application was made with the use of many libraries, such as Bootstrap and Material for the css and design aspect of the website, and Passport for the login account authenticaion.");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -133,37 +133,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "h1", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Libraries used below");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Libraries I used");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "h2", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "a", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "a", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "img", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "https://getbootstrap.com/");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " Bootstrap ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "h2", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "a", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "img", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "https://material.angularjs.org/latest/getting-started");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, " AngularJS Material ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "h2", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "a", 11);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "a", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "img", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "http://www.passportjs.org/");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, " PassportJS ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -726,7 +720,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             _this._router.navigate(['/user']);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this._snackBar.open('Error! Enter a valid email and password', 'X', {
+            _this._snackBar.open('Incorrent email or password', 'X', {
               duration: 4000
             });
 
@@ -747,7 +741,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-login"]],
       decls: 20,
       vars: 1,
-      consts: [[1, "row", 2, "margin-top", "40px", "padding", "20px", "background-color", "#00CED1", "border-radius", "15px", "-webkit-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "-moz-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)"], [1, "col-sm-12", 2, "text-align", "center"], [1, "col-sm-12"], [3, "formGroup"], [1, "form-group"], ["for", "exampleInputEmail1"], ["formControlName", "email", "type", "email", "id", "exampleInputEmail1", "aria-describedby", "emailHelp", "placeholder", "Enter email", 1, "form-control"], ["id", "emailHelp", 1, "form-text", "text-muted"], ["for", "passwordInput"], ["formControlName", "password", "type", "password", "id", "passwordInput", "aria-describedby", "passHelp", "placeholder", "password", 1, "form-control"], ["id", "passHelp", 1, "form-text", "text-muted"], [1, "form-group", 2, "text-align", "center"], ["type", "button", 1, "btn", "btn-dark", 3, "click"], ["type", "button", 1, "btn", "btn-secondary", 3, "click"]],
+      consts: [[1, "row", 2, "margin-top", "40px", "padding", "20px", "background-color", "#00CED1", "border-radius", "15px", "-webkit-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "-moz-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)"], [1, "col-sm-12", 2, "text-align", "center"], [1, "col-sm-12"], [3, "formGroup"], [1, "form-group"], ["for", "exampleInputEmail1"], ["formControlName", "email", "type", "email", "id", "exampleInputEmail1", "aria-describedby", "emailHelp", "placeholder", "Enter email", 1, "form-control"], ["id", "emailHelp", 1, "form-text", "text-muted"], ["for", "passwordInput"], ["formControlName", "password", "type", "password", "id", "passwordInput", "aria-describedby", "passHelp", "placeholder", "Enter password", 1, "form-control"], ["id", "passHelp", 1, "form-text", "text-muted"], [1, "form-group", 2, "text-align", "center"], ["type", "button", 1, "btn", "btn-dark", 3, "click"], ["type", "button", 1, "btn", "btn-secondary", 3, "click"]],
       template: function LoginComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -974,7 +968,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-register"]],
       decls: 28,
       vars: 1,
-      consts: [[1, "row", 2, "margin-top", "40px", "padding", "20px", "background-color", "#00CED1", "border-radius", "15px", "-webkit-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "-moz-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)"], [1, "col-sm-12"], [3, "formGroup"], [1, "form-group"], ["for", "exampleInputEmail1"], ["formControlName", "email", "type", "email", "id", "exampleInputEmail1", "aria-describedby", "emailHelp", "placeholder", "Enter email", 1, "form-control"], ["id", "emailHelp", 1, "form-text", "text-muted"], ["for", "exampleInputUsername"], ["formControlName", "username", "type", "text", "id", "exampleInputUsername", "aria-describedby", "userHelp", "placeholder", "username", 1, "form-control"], ["id", "userHelp", 1, "form-text", "text-muted"], ["for", "passwordInput"], ["formControlName", "password", "type", "password", "id", "passwordInput", "aria-describedby", "passHelp", "placeholder", "password", 1, "form-control"], ["id", "passHelp", 1, "form-text", "text-muted"], ["for", "CpasswordInput"], ["formControlName", "cpass", "type", "password", "id", "CpasswordInput", "aria-describedby", "CpassHelp", "placeholder", "password", 1, "form-control"], ["id", "CpassHelp", 1, "form-text", "text-muted"], [1, "form-group", 2, "text-align", "center"], ["type", "button", 1, "btn", "btn-dark", 3, "click"], ["type", "button", 1, "btn", "btn-secondary", 3, "click"]],
+      consts: [[1, "row", 2, "margin-top", "40px", "padding", "20px", "background-color", "#00CED1", "border-radius", "15px", "-webkit-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "-moz-box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)", "box-shadow", "0px 0px 5px 2px rgba(0,0,0,0.2)"], [1, "col-sm-12"], [3, "formGroup"], [1, "form-group"], ["for", "exampleInputEmail1"], ["formControlName", "email", "type", "email", "id", "exampleInputEmail1", "aria-describedby", "emailHelp", "placeholder", "Enter email", 1, "form-control"], ["id", "emailHelp", 1, "form-text", "text-muted"], ["for", "exampleInputUsername"], ["formControlName", "username", "type", "text", "id", "exampleInputUsername", "aria-describedby", "userHelp", "placeholder", "Enter username", 1, "form-control"], ["id", "userHelp", 1, "form-text", "text-muted"], ["for", "passwordInput"], ["formControlName", "password", "type", "password", "id", "passwordInput", "aria-describedby", "passHelp", "placeholder", "Enter password", 1, "form-control"], ["id", "passHelp", 1, "form-text", "text-muted"], ["for", "CpasswordInput"], ["formControlName", "cpass", "type", "password", "id", "CpasswordInput", "aria-describedby", "CpassHelp", "placeholder", "Confirm password", 1, "form-control"], ["id", "CpassHelp", 1, "form-text", "text-muted"], [1, "form-group", 2, "text-align", "center"], ["type", "button", 1, "btn", "btn-dark", 3, "click"], ["type", "button", 1, "btn", "btn-secondary", 3, "click"]],
       template: function RegisterComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
