@@ -14,14 +14,14 @@ export class UserService {
   constructor(private _http:HttpClient, protected localStorage:LocalStorage) { }
 
   register(body:any): Observable<User>{
-    return this._http.post<User>('http://127.0.0.1:3000/users/register',body,{
+    return this._http.post<User>('users/register',body,{
       observe:'body', 
       headers: new HttpHeaders().append('Content-Type','application/json')
     });
   }
 
   login(body:any): Observable<UserResponse>{
-    return this._http.post<UserResponse>('http://127.0.0.1:3000/users/login',body,{
+    return this._http.post<UserResponse>('users/login',body,{
       observe:'body', 
       withCredentials:true,
       headers: new HttpHeaders().append('Content-Type','application/json')
@@ -29,7 +29,7 @@ export class UserService {
   }
 
   user(): Observable<User>{
-    return this._http.get<User>('http://127.0.0.1:3000/users/user',{
+    return this._http.get<User>('users/user',{
       observe:'body', 
       withCredentials:true,
       headers: new HttpHeaders().append('Content-Type','application/json')
@@ -37,7 +37,7 @@ export class UserService {
   }
 
   logout(){
-    return this._http.get('http://127.0.0.1:3000/users/logout',{
+    return this._http.get('users/logout',{
       observe:'body', 
       withCredentials:true,
       headers: new HttpHeaders().append('Content-Type','application/json')
@@ -45,6 +45,6 @@ export class UserService {
   }
 
   UpdateBalance(update:UpdateBalance){
-    return this._http.post('http://127.0.0.1:3000/users/update', update)
+    return this._http.post('users/update', update)
   }
 }
