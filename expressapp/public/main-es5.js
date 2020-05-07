@@ -968,7 +968,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(UserService, [{
         key: "register",
         value: function register(body) {
-          return this._http.post('http://127.0.0.1:3000/users/register', body, {
+          return this._http.post('users/register', body, {
             observe: 'body',
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
           });
@@ -976,7 +976,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "login",
         value: function login(body) {
-          return this._http.post('http://127.0.0.1:3000/users/login', body, {
+          return this._http.post('users/login', body, {
             observe: 'body',
             withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
@@ -985,7 +985,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "user",
         value: function user() {
-          return this._http.get('http://127.0.0.1:3000/users/user', {
+          return this._http.get('users/user', {
             observe: 'body',
             withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
@@ -994,7 +994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "logout",
         value: function logout() {
-          return this._http.get('http://127.0.0.1:3000/users/logout', {
+          return this._http.get('users/logout', {
             observe: 'body',
             withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
@@ -1003,7 +1003,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "UpdateBalance",
         value: function UpdateBalance(update) {
-          return this._http.post('http://127.0.0.1:3000/users/update', update);
+          return this._http.post('users/update', update);
         }
       }]);
 

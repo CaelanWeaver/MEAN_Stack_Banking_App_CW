@@ -1,0 +1,15 @@
+.jumbotron{
+    background-color: #00CED1;
+    text-align-last: center;
+}
+.lower-section{
+    width: 410px;
+    margin: auto;
+}
+@media only screen and (max-width:770px) and (max-width: 960px){
+    .lower-section{
+        width: auto;
+        margin: auto;
+        /*TODO fix botton group*/
+    }
+}

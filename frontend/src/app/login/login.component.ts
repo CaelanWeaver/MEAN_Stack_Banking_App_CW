@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   constructor(private _router:Router, private _user:UserService, protected localStorage:LocalStorage, private _snackBar: MatSnackBar) { }
 
   ngOnInit(){
-   
     }
 
   moveToRegister(){
@@ -40,13 +39,11 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/user']);
       }),
       catchError((error)=>{
-        this._snackBar.open('Error, invalid email or password','X',{
+        this._snackBar.open('Error! Enter a valid email and password','X',{
           duration:4000
         });
         throw error;
       })
     ).subscribe();
   }
-  
-  
 }

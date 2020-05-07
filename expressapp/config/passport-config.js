@@ -9,7 +9,7 @@ passport.use('local',new LocalStrategy({
     User.findOne({ email: username }, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, { message: 'Incorrect email.' });
       }
       if (!user.isValid(password)) {
         return done(null, false, { message: 'Incorrect password.' });
@@ -18,6 +18,23 @@ passport.use('local',new LocalStrategy({
     });
   }
 ));
+
+passport.use('local-signup',new LocalStrategy({
+  usernameField:'email',
+  passReqToCallback: true
+},
+function(req, email, done) {
+  User.findOne({ email: email }, function(err, user){
+    if(err){
+      return done(err);
+    }
+    if(user) {
+      console.log("user exists!");
+      return done(null,false,console.log((req)));
+    }
+  });
+})
+);
 
 passport.serializeUser(function(user, done) {
     done(null, user._id);

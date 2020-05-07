@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import { UserService } from '../user.service';
 import { tap, catchError } from 'rxjs/operators';
-import { User } from '../models/user.model';
+import { User, UserResponse } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-register',
@@ -38,8 +38,8 @@ export class RegisterComponent implements OnInit {
       this._router.navigate(['/login']);
     },
     catchError((error)=>{
-      this._snackBar.open("Invalid value",'X',{
-        duration:5000
+      this._snackBar.open(error,'X',{
+        duration:4000
       });
       throw error;
     })

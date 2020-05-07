@@ -7,7 +7,7 @@ var schema = new Schema({
     username : {type:String, required:true},
     password : {type:String, required:true},
     creation_dt : {type:Date, required:true},
-    balance:{type:Number,required:true}
+    balance: {type:Number,required:true}
 });
 
 schema.statics.hashPassword = function hashPassword(password){

@@ -35,7 +35,7 @@ export class UserhomeComponent implements OnInit {
         this.balance=res.balance;
       }),
       catchError((error)=>{
-        this._snackBar.open(error,'X',{
+        this._snackBar.open("Unauthorised access, please login",'X',{
           duration:5000
         });
         this._router.navigate(['/login']);

@@ -491,34 +491,34 @@ class UserService {
     //   console.log(this.localStorage.getItem('_id'))
     //   }
     register(body) {
-        return this._http.post('http://127.0.0.1:3000/users/register', body, {
+        return this._http.post('users/register', body, {
             observe: 'body',
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
         });
     }
     login(body) {
-        return this._http.post('http://127.0.0.1:3000/users/login', body, {
+        return this._http.post('users/login', body, {
             observe: 'body',
             withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
         });
     }
     user() {
-        return this._http.get('http://127.0.0.1:3000/users/user', {
+        return this._http.get('users/user', {
             observe: 'body',
             withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
         });
     }
     logout() {
-        return this._http.get('http://127.0.0.1:3000/users/logout', {
+        return this._http.get('users/logout', {
             observe: 'body',
             withCredentials: true,
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().append('Content-Type', 'application/json')
         });
     }
     UpdateBalance(update) {
-        return this._http.post('http://127.0.0.1:3000/users/update', update);
+        return this._http.post('users/update', update);
     }
 }
 UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_2__["LocalStorage"])); };

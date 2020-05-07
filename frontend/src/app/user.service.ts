@@ -13,16 +13,8 @@ export class UserService {
 
   constructor(private _http:HttpClient, protected localStorage:LocalStorage) { }
 
-  // ngOnInit(){
-  //   document.getElementById('_id').addEventListener('submit', function(){
-  //     var id = document.getElementById('')
-  //   })
-  //   console.log(this.localStorage.getItem('_id'))
-  //   }
-  
-
-  register(body:any){
-    return this._http.post('http://127.0.0.1:3000/users/register',body,{
+  register(body:any): Observable<User>{
+    return this._http.post<User>('http://127.0.0.1:3000/users/register',body,{
       observe:'body', 
       headers: new HttpHeaders().append('Content-Type','application/json')
     });
