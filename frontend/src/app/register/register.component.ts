@@ -5,11 +5,13 @@ import { UserService } from '../user.service';
 import { tap, catchError } from 'rxjs/operators';
 import { User, UserResponse } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   registerForm:FormGroup = new FormGroup({
@@ -17,6 +19,7 @@ export class RegisterComponent implements OnInit {
     username:new FormControl(null,Validators.required),
     password:new FormControl(null,Validators.required),
     cpass:new FormControl(null,Validators.required)
+    
   })
   constructor(private _router:Router, private _userService:UserService, private _snackBar:MatSnackBar) { }
 
@@ -34,7 +37,9 @@ export class RegisterComponent implements OnInit {
     this._userService.register(JSON.stringify(this.registerForm.value)).
     pipe(
       tap((res:User)=>{
-      console.log(res);
+      this._snackBar.open("Registration Successful" ,"X",{
+        duration:3000
+      })
       this._router.navigate(['/login']);
     },
     catchError((error)=>{

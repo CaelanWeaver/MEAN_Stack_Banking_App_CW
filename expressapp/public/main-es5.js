@@ -718,6 +718,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._user.login(JSON.stringify(this.loginForm.value)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
             localStorage.setItem('_id', res.user._id);
 
+            _this._snackBar.open("Login Successful", "X", {
+              duration: 3000
+            });
+
             _this._router.navigate(['/user']);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
             _this._snackBar.open('Incorrent email or password', 'X', {
@@ -943,7 +947,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this._userService.register(JSON.stringify(this.registerForm.value)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
-            console.log(res);
+            _this2._snackBar.open("Registration Successful", "X", {
+              duration: 3000
+            });
 
             _this2._router.navigate(['/login']);
           }, Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {

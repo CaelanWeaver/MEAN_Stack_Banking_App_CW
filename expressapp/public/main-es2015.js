@@ -366,6 +366,9 @@ class LoginComponent {
         this._user.login(JSON.stringify(this.loginForm.value)).
             pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((res) => {
             localStorage.setItem('_id', res.user._id);
+            this._snackBar.open("Login Successful", "X", {
+                duration: 3000
+            });
             this._router.navigate(['/user']);
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
             this._snackBar.open('Incorrent email or password', 'X', {
@@ -474,7 +477,9 @@ class RegisterComponent {
         }
         this._userService.register(JSON.stringify(this.registerForm.value)).
             pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((res) => {
-            console.log(res);
+            this._snackBar.open("Registration Successful", "X", {
+                duration: 3000
+            });
             this._router.navigate(['/login']);
         }, Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
             this._snackBar.open(error, 'X', {

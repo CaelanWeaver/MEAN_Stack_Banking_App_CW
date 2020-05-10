@@ -9,7 +9,6 @@ import { throwError } from 'rxjs';
 import { error } from '@angular/compiler/src/util';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -35,7 +34,10 @@ export class LoginComponent implements OnInit {
     this._user.login(JSON.stringify(this.loginForm.value)).
     pipe(
       tap((res:UserResponse)=>{
-        localStorage.setItem('_id',res.user._id); 
+        localStorage.setItem('_id',res.user._id);
+        this._snackBar.open("Login Successful","X",{
+          duration:3000
+        }) 
         this._router.navigate(['/user']);
       }),
       catchError((error)=>{
