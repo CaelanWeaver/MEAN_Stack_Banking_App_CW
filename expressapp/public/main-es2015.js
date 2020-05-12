@@ -366,12 +366,12 @@ class LoginComponent {
         this._user.login(JSON.stringify(this.loginForm.value)).
             pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((res) => {
             localStorage.setItem('_id', res.user._id);
-            this._snackBar.open("Login Successful", "X", {
+            this._snackBar.open("Login Successful!", "X", {
                 duration: 3000
             });
             this._router.navigate(['/user']);
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
-            this._snackBar.open('Incorrent email or password', 'X', {
+            this._snackBar.open('Incorrect email or password!', 'X', {
                 duration: 4000
             });
             throw error;
@@ -472,12 +472,12 @@ class RegisterComponent {
     }
     register() {
         if (!this.registerForm.valid || (this.registerForm.controls.password.value != this.registerForm.controls.cpass.value)) {
-            this._snackBar.open("invalid form", 'X', { duration: 4000 });
+            this._snackBar.open("Invalid form!", 'X', { duration: 4000 });
             return;
         }
         this._userService.register(JSON.stringify(this.registerForm.value)).
             pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])((res) => {
-            this._snackBar.open("Registration Successful", "X", {
+            this._snackBar.open("Registration Successful!", "X", {
                 duration: 3000
             });
             this._router.navigate(['/login']);
@@ -661,7 +661,7 @@ class UserhomeComponent {
             this.username = res.username;
             this.balance = res.balance;
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
-            this._snackBar.open("Unauthorised access, please login", 'X', {
+            this._snackBar.open("Unauthorised access! Please login", 'X', {
                 duration: 5000
             });
             this._router.navigate(['/login']);
@@ -692,7 +692,7 @@ class UserhomeComponent {
             console.log(res);
             this._router.navigate(['/user']);
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
-            this._snackBar.open('Invalid value', 'X', {
+            this._snackBar.open('Invalid value!', 'X', {
                 duration: 5000
             });
             throw error;
@@ -710,7 +710,7 @@ class UserhomeComponent {
             console.log(res);
             this._router.navigate(['/user']);
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
-            this._snackBar.open("Invalid value", 'X', {
+            this._snackBar.open("Invalid value!", 'X', {
                 duration: 5000
             });
             throw error;
@@ -743,7 +743,7 @@ UserhomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "button", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function UserhomeComponent_Template_button_click_16_listener() { return ctx.updateBalance(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Deposite");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Deposit");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 15);

@@ -32,12 +32,12 @@ export class RegisterComponent implements OnInit {
 
   register(){
     if(!this.registerForm.valid || (this.registerForm.controls.password.value != this.registerForm.controls.cpass.value)){
-      this._snackBar.open("invalid form",'X',{duration:4000}); return;
+      this._snackBar.open("Invalid form!",'X',{duration:4000}); return;
     }
     this._userService.register(JSON.stringify(this.registerForm.value)).
     pipe(
       tap((res:User)=>{
-      this._snackBar.open("Registration Successful" ,"X",{
+      this._snackBar.open("Registration Successful!" ,"X",{
         duration:3000
       })
       this._router.navigate(['/login']);

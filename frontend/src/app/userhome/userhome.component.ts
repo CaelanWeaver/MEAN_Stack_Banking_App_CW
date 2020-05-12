@@ -35,7 +35,7 @@ export class UserhomeComponent implements OnInit {
         this.balance=res.balance;
       }),
       catchError((error)=>{
-        this._snackBar.open("Unauthorised access, please login",'X',{
+        this._snackBar.open("Unauthorised access! Please login",'X',{
           duration:5000
         });
         this._router.navigate(['/login']);
@@ -75,7 +75,7 @@ export class UserhomeComponent implements OnInit {
     this._router.navigate(['/user']);
     }),
     catchError((error)=>{
-      this._snackBar.open('Invalid value','X',{
+      this._snackBar.open('Invalid value!','X',{
         duration:5000
       });
       throw error;
@@ -98,7 +98,7 @@ export class UserhomeComponent implements OnInit {
     this._router.navigate(['/user']);
     }),
     catchError((error)=>{
-      this._snackBar.open("Invalid value",'X',{
+      this._snackBar.open("Invalid value!",'X',{
         duration:5000
       });
       throw error;

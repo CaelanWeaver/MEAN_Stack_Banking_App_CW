@@ -718,13 +718,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._user.login(JSON.stringify(this.loginForm.value)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
             localStorage.setItem('_id', res.user._id);
 
-            _this._snackBar.open("Login Successful", "X", {
+            _this._snackBar.open("Login Successful!", "X", {
               duration: 3000
             });
 
             _this._router.navigate(['/user']);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this._snackBar.open('Incorrent email or password', 'X', {
+            _this._snackBar.open('Incorrect email or password!', 'X', {
               duration: 4000
             });
 
@@ -939,7 +939,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this2 = this;
 
           if (!this.registerForm.valid || this.registerForm.controls.password.value != this.registerForm.controls.cpass.value) {
-            this._snackBar.open("invalid form", 'X', {
+            this._snackBar.open("Invalid form!", 'X', {
               duration: 4000
             });
 
@@ -947,7 +947,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this._userService.register(JSON.stringify(this.registerForm.value)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
-            _this2._snackBar.open("Registration Successful", "X", {
+            _this2._snackBar.open("Registration Successful!", "X", {
               duration: 3000
             });
 
@@ -1305,7 +1305,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this3.username = res.username;
             _this3.balance = res.balance;
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this3._snackBar.open("Unauthorised access, please login", 'X', {
+            _this3._snackBar.open("Unauthorised access! Please login", 'X', {
               duration: 5000
             });
 
@@ -1348,7 +1348,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             _this5._router.navigate(['/user']);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this5._snackBar.open('Invalid value', 'X', {
+            _this5._snackBar.open('Invalid value!', 'X', {
               duration: 5000
             });
 
@@ -1372,7 +1372,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             _this6._router.navigate(['/user']);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
-            _this6._snackBar.open("Invalid value", 'X', {
+            _this6._snackBar.open("Invalid value!", 'X', {
               duration: 5000
             });
 
@@ -1448,7 +1448,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             return ctx.updateBalance();
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Deposite");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Deposit");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 

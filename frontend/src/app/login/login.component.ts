@@ -35,13 +35,13 @@ export class LoginComponent implements OnInit {
     pipe(
       tap((res:UserResponse)=>{
         localStorage.setItem('_id',res.user._id);
-        this._snackBar.open("Login Successful","X",{
+        this._snackBar.open("Login Successful!","X",{
           duration:3000
         }) 
         this._router.navigate(['/user']);
       }),
       catchError((error)=>{
-        this._snackBar.open('Incorrent email or password','X',{
+        this._snackBar.open('Incorrect email or password!','X',{
           duration:4000
         });
         throw error;
