@@ -6,6 +6,10 @@ var passport = require('passport');
 
 router.post('/register',function(req,res,_next){
   addToDB(req,res)
+
+  //TODO change router.post to be asynchronous and 
+  //perform function with /register function
+  
 });
 
 async function addToDB(req,res){

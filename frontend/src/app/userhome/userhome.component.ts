@@ -1,59 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
-import { error } from 'protractor';
-import {FormGroup,FormControl, Validators} from '@angular/forms';
-import { UpdateBalance } from '../updateBalance.model';
+import { UserService } from '../services/user.service';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { tap, catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-userhome',
   templateUrl: './userhome.component.html',
   styleUrls: ['./userhome.component.css']
 })
+
 export class UserhomeComponent implements OnInit {
 
-  depositeForm : FormGroup = new FormGroup({
-  balance:new FormControl(null,Validators.required)
+  depositeForm: FormGroup = new FormGroup({
+  balance: new FormControl(null, Validators.required)
   });
 
-  //variables
-  username:String='';
-  balance:number=0;
-  newBalance:number=0;
-  id:string='';
+  // variables
+  username: string;
+  balance = 0;
+  newBalance = 0;
+  id: string;
 
-  constructor(private _user:UserService, private _router:Router, private _snackBar:MatSnackBar) {}
-  
+  private subscriptions = new Subscription();
+
+  constructor(private userService: UserService, private routerService: Router, private SnackBar: MatSnackBar) {}
+
   ngOnInit(): void {
-    this._user.user()
+    this.userService.user()
     .pipe(
-      tap((res:User)=>{
-        this.username=res.username;
-        this.balance=res.balance;
+      tap((res: User) => {
+        this.username = res.username;
+        this.balance = res.balance;
       }),
-      catchError((error)=>{
-        this._snackBar.open("Unauthorised access! Please login",'X',{
-          duration:5000
+      catchError((error) => {
+        this.SnackBar.open('Unauthorised access! Please login','X',{
+          duration: 5000
         });
-        this._router.navigate(['/login']);
+        this.routerService.navigate(['/login']);
         throw error;
       })
     ).subscribe();
   }
 
+  ngOnDestroy(){
+    this.subscriptions.unsubscribe();
+  }
+
   logout(){
-    this._user.logout()
+    this.userService.logout()
     .pipe(
-      tap((res:User)=>{
-      console.log(res);
-      this._router.navigate(['/login']);
+      tap((res: User) => {
+      this.routerService.navigate(['/login']);
       }),
-      catchError((error)=>{
-        this._snackBar.open(error,'X',{
-          duration:5000
+      catchError((error) => {
+        this.SnackBar.open(error,'X',{
+          duration: 5000
         });
         throw error;
       })
@@ -62,21 +67,15 @@ export class UserhomeComponent implements OnInit {
 
   updateBalance(){
     const userId = localStorage.getItem('_id');
-    this.balance+= this.newBalance;
-    const update ={
-      _id: userId,
-      balance: this.balance
-    } as UpdateBalance;
-
-  this._user.UpdateBalance(update).
+    this.balance += this.newBalance;
+    this.userService.UpdateBalance({_id: userId, balance: this.balance}).
   pipe(
-    tap((res:User)=>{
-    console.log(res);
-    this._router.navigate(['/user']);
+    tap((res: User) => {
+    this.routerService.navigate(['/user']);
     }),
-    catchError((error)=>{
-      this._snackBar.open('Invalid value!','X',{
-        duration:5000
+    catchError((error) => {
+      this.SnackBar.open('Invalid value!', 'X', {
+        duration: 5000
       });
       throw error;
     })
@@ -85,21 +84,15 @@ export class UserhomeComponent implements OnInit {
 
   withdrawBalance(){
     const userId = localStorage.getItem('_id');
-    this.balance-= this.newBalance;
-    const update ={
-      _id: userId,
-      balance: this.balance
-    } as UpdateBalance;
-
-  this._user.UpdateBalance(update).
+    this.balance -= this.newBalance;
+    this.userService.UpdateBalance({_id: userId, balance: this.balance}).
   pipe(
-    tap((res:User)=>{ 
-    console.log(res); 
-    this._router.navigate(['/user']);
+    tap((res: User) => {
+    this.routerService.navigate(['/user']);
     }),
-    catchError((error)=>{
-      this._snackBar.open("Invalid value!",'X',{
-        duration:5000
+    catchError((error) => {
+      this.SnackBar.open('Invalid value!', 'X', {
+        duration: 5000
       });
       throw error;
     })

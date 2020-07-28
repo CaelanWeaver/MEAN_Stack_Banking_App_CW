@@ -5,13 +5,12 @@ import { RegisterComponent } from './register/register.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { AboutComponent } from './about page/about.component';
 
-
 const routes: Routes = [
-  {path:'', redirectTo:'register', pathMatch:'full'},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'user', component:UserhomeComponent},
-  {path:'about',component:AboutComponent}
+  {path: '', redirectTo: 'register', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'user', component: UserhomeComponent},
+  {path: 'about', component: AboutComponent}
 ];
 
 @NgModule({

@@ -17,7 +17,7 @@ app.use(cors({
 const url = 'mongodb+srv://testuser123:testuser123@cluster0-j6gtz.mongodb.net/login?retryWrites=true&w=majority';
 const mongoose =require('mongoose');
 
-mongoose.connect(url, {useNewUrlParser:true})
+mongoose.connect(url, {useNewUrlParser:true , useUnifiedTopology: true})
 .then(()=> console.log('MongoDB Connected...'))
 .catch(err=> console.log(err));
 
@@ -41,12 +41,6 @@ app.use(session({
 require('./config/passport-config');
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());

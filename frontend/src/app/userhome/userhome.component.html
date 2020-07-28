@@ -4,15 +4,15 @@
 box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
 
   <div class="col-sm-12">
-      <div class="jumbotron">
+    <div class="jumbotron">
           <h1 class="display-4">Hello, {{username}}! </h1>
           <p class="lead">Your current balance is £{{balance}}.</p>
           <hr class="my-4">
           <div class="lower-section">
             <div class="form-group">
-              <label for="deposite-number-input" class="col-0 col-form-label"></label>
+              <label for="deposit-number-input" class="col-0 col-form-label"></label>
               <div class="col-13">
-                <input class="form-control" type="number" value="" id="deposite_number_input" placeholder="Enter amount to deposite" [(ngModel)] = 'newBalance'>
+                <input class="form-control" type="number" value="" id="deposit_number_input" placeholder="Enter an amount to deposit or withdraw" [(ngModel)] = 'newBalance'>
               </div>
             <small id="emailHelp" class="form-text text-muted"></small>
           </div>
@@ -29,6 +29,6 @@ box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);">
               </div>
           </div> 
           </div>
-        </div>
-        </div>
+    </div>
+  </div>
 </div>
