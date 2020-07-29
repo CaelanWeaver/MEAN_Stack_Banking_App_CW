@@ -12,14 +12,14 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   register(body: any): Observable<User>{
-    return this.httpClient.post<User>('http://127.0.0.1:3000/users/register', body, {
+    return this.httpClient.post<User>('users/register', body, {
       observe: 'body',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
   }
 
   login(body: any): Observable<UserResponse>{
-    return this.httpClient.post<UserResponse>('http://127.0.0.1:3000/users/login', body, {
+    return this.httpClient.post<UserResponse>('users/login', body, {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
@@ -27,7 +27,7 @@ export class UserService {
   }
 
   user(): Observable<User>{
-    return this.httpClient.get<User>('http://127.0.0.1:3000/users/user', {
+    return this.httpClient.get<User>('users/user', {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
@@ -35,8 +35,7 @@ export class UserService {
   }
 
   logout(){
-    // remove local ip when using to heroku, purely for testing purposes (e.g.users/logout)
-    return this.httpClient.get('http://127.0.0.1:3000/users/logout', {
+    return this.httpClient.get('users/logout', {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
@@ -44,6 +43,6 @@ export class UserService {
   }
 
   UpdateBalance(update: UpdateBalance){
-    return this.httpClient.post('http://127.0.0.1:3000/users/update', update);
+    return this.httpClient.post('users/update', update);
   }
 }
