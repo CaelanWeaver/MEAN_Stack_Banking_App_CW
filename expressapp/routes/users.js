@@ -6,14 +6,10 @@ var passport = require('passport');
 
 router.post('/register',function(req,res,_next){
   addToDB(req,res)
-
-  //TODO change router.post to be asynchronous and 
-  //perform function with /register function
-  
 });
 
 async function addToDB(req,res){
-  var user = new User({
+  const user = new User({
     email:req.body.email,
     username:req.body.username,
     password:User.hashPassword(req.body.password),
@@ -32,10 +28,12 @@ async function addToDB(req,res){
 
 router.post('/login', function(req,res,next){
   passport.authenticate('local', function(err, user, info) {
-    if (err) { return res.status(501).json(err); }
-    if (!user) { return res.status(501).json(info); }
+    
+    if (err) return res.status(501).json(err); 
+    if (!user) return res.status(501).json(info); 
+    
     req.logIn(user, function(err) {
-      if (err) { return res.status(501).json(err); }
+      if (err) return res.status(501).json(err); 
       return res.status(200).json({user:user});
     });
   })(req, res, next);
